@@ -36,30 +36,23 @@ namespace Problem_1
             {
                 string[] pieces = filelines[i].Split(',');
 
-                cars.vin = pieces[0];
+                cars.vin = Convert.ToChar(pieces[0]);
                 cars.make = pieces[1];
                 cars.color = pieces[2];
-                cars.year = pieces[3];
+                cars.year = Convert.ToInt32(pieces[3]);
                 cars.model = pieces[4];
-                cars.sale_price = pieces[5];
-                
+                cars.sale_price = Convert.ToDouble(pieces[5]);
+
+                foreach (CarData data in Cars)
+                {
+                    lstCars.Items.Add(cars);
+                }
+
+                if (comboColor.Items.Contains(cars.color) == false)
+                {
+                    comboColor.Items.Add(cars.color);
+                }
             }
-           
-
-
-                lstCars.Items.Add((CarData)cars);
-            
-           
-            
-           
-                
-            
-            if (comboColor.Items.Contains(cars.color) == false)
-            {
-                comboColor.Items.Add(cars.color);
-            }
-
-
         }
 
         private void btnFilter_Click(object sender, RoutedEventArgs e)
@@ -72,13 +65,12 @@ namespace Problem_1
 
             foreach (var car in Cars)
             {
-                if (car.color == color)
+                if (car.color == color //|| car.year <= year
+                                       )
                 {
-                    //    if (year <= car.year)
-                    //    {
+                   
                     lstCars.Items.Add(car);
-                    //    }
-                    //}
+                    
                 }
             }
             lblResults.Content = $"Record Count: {lstCars.Items.Count.ToString("N0")}";

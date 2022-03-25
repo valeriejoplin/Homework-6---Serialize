@@ -11,9 +11,9 @@ namespace Problem_1
         public string vin { get; set; }
         public string make { get; set; }
         public string color { get; set; }
-        public string year { get; set; }
+        public int year { get; set; }
         public string model { get; set; }
-        public string sale_price { get; set; }
+        public double sale_price { get; set; }
 
 
         public CarData()
@@ -21,9 +21,9 @@ namespace Problem_1
             vin = string.Empty;
             make = string.Empty;
             color = string.Empty;
-            year = string.Empty;
+            year = 0;
             model = string.Empty;
-            sale_price = string.Empty;
+            sale_price = 0 ;
         }
         
         public override string ToString()
